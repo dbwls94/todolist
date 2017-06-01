@@ -1,0 +1,14 @@
+(function (window) {
+	'use strict';
+
+	// Your starting point. Enjoy the ride!
+	
+	
+})(window);
+
+//insert todo
+function insertTodo(todo){ 
+	if(f.keyCode == 13){ //enter키 == 13
+		console.log('in');
+	} 
+}

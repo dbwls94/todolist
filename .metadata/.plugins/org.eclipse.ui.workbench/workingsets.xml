@@ -3,5 +3,6 @@
 <workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1496297881918_0" label="ToDoList" name="ToDoList">
 <item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/fe" type="4"/>
 </workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1496316577546_1" label="Window Working Set" name="Aggregate for window 1496316577545"/>
 <mruList name="ToDoList"/>
 </workingSetManager>

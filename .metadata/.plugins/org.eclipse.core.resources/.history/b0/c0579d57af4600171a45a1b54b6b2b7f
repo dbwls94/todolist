@@ -1,0 +1,31 @@
+package kr.or.connect.presentation;
+
+import kr.or.connect.service.TodoService;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/todo") //common
+public class TodoController {
+	private final TodoService service; //TodoService를 주입받음
+	private final Logger log = LoggerFactory.getLogger(TodoController.class);
+	
+	@Autowired
+	public TodoController(TodoService service) {
+		this.service = service;
+	}
+	
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
+	Book create(@RequestBody Book book) {
+		//return service.create(book);
+		Book newBook = service.create(book);
+		log.info("book created : {}" , newBook);
+		return book;
+	}
+}

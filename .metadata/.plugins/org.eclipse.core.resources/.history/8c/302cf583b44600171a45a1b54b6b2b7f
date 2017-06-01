@@ -1,0 +1,21 @@
+package kr.or.connect.service;
+
+import kr.or.connect.todo.domain.Todo;
+import kr.or.connect.todo.persistence.TodoDao;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class TodoService {
+	private TodoDao dao; //BookDao 주입받음
+	
+	public TodoService(TodoDao dao) {
+		this.dao = dao;
+	}
+	
+	public Todo create(Todo book) {
+		Integer id = dao.insert(book);
+		book.setId(id);
+		return book;
+	}
+}

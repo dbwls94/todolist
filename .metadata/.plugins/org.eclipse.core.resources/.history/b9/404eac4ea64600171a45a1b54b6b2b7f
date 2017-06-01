@@ -1,0 +1,8 @@
+package kr.or.connect.todo.domain;
+
+public class Todo {
+	private Integer id;
+	private String todo;
+	private Integer completed;
+	
+}

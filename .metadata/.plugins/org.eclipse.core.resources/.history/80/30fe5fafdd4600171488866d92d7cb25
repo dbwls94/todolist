@@ -1,0 +1,47 @@
+(function (window) {
+	'use strict';
+
+	// Your starting point. Enjoy the ride!
+	
+	//현재 적용된 필터 -> all
+	//전체 리스트 호출
+	
+})(window);
+
+//insert todo
+$('.new-todo').keyup(function (e){
+	if(e.keyCode == 13){
+		var todoCont = var ajaxName = decodeURIComponent($(this).val());
+		
+		if(todoCont == ''){
+			alert('add your todo!');
+			return;
+		}
+		
+		var todoData = {'todo' : todoCont};
+	
+		console.log(todoData);
+		$.ajax({
+			  type: "POST",
+			  url: "/api/todo",
+			  data: todoData,
+			  success: function(data){
+				  console.log(data);
+				  //add to '.todo-list'
+				  if($('#all').hasClass('selected') || $('#active').hasClass('selected')){
+					  $('.todo-list').prepend('<li><div class="view" id="' + data.id + '"><input class="toggle" type="checkbox"><label>' + data.todo + '</label><button class="destroy"></button></div></li>');
+				  }
+				  
+				  //'' item left++
+				  
+			  },
+		      error: function(xhr, status, error) {
+		          console.log(error);
+		      }
+		});
+		
+		//'.new-todo' 자리 다시 빈 문자열로 갱신
+		//$('.new-todo').val() = '';
+	}
+	
+})

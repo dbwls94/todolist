@@ -1,0 +1,54 @@
+package kr.or.connect.todo.domain;
+import java.sql.Timestamp;
+
+public class Todo {
+	private Integer id;
+	private String todo;
+	private Integer completed;
+	private Timestamp time;
+	
+	public Todo(){
+		
+	}
+	
+	public Todo(Integer id, String todo, Integer completed, Timestamp time){
+		
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+	
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getTodo() {
+		return todo;
+	}
+	
+	public void setTodo(String todo) {
+		this.todo = todo;
+	}
+	
+	public Integer getCompleted() {
+		return completed;
+	}
+	
+	public void setCompleted(Integer completed) {
+		this.completed = completed;
+	}
+	
+	public Timestamp getTime() {
+		return time;
+	}
+	
+	public void setTime(Timestamp time) {
+		this.time = time;
+	}
+	
+	@Override
+	public String toString() {
+		return "Todo [id=" + id + ", todo=" + todo + ", completed=" + completed
+				+ ", time=" + time + "]";
+	}
+}
