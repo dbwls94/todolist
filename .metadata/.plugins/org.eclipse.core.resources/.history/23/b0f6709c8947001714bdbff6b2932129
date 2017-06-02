@@ -27,24 +27,8 @@ function countNum(){
 }
 
 //delete completed todos
-$('.clear-completed').click(function(){
-	//console.log('clear');
-	$.ajax({
-		type: "DELETE",
-		url: "/api/todo",
-		success: function(data){
-			//현재 filter 따라서 페이지 로딩
-			if($('#all').hasClass('selected')){
-				getTodoList('all');
-			}
-			else if($('#active').hasClass('selected')){
-				getTodoList('active');
-			}
-			else if($('#completed').hasClass('selected')){
-				getTodoList('completed');
-			}
-		}
-	});
+$('.clear-completed').on('click', 'button', function(){
+	
 });
 
 //delete todo
@@ -54,7 +38,7 @@ $('.todo-list').on('click', 'button', function(){
 	
 	$.ajax({
 		type: "DELETE",
-		url: "/api/todo/" + id,
+		url: "api/todo/" + id,
 		contentType: "application/json; charset=utf-8",
 		success: function(data){
 			//현재 filter 따라서 페이지 로딩

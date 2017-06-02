@@ -27,8 +27,7 @@ function countNum(){
 }
 
 //delete completed todos
-$('.clear-completed').click(function(){
-	//console.log('clear');
+$('.clear-completed').on('click', 'button', function(){
 	$.ajax({
 		type: "DELETE",
 		url: "/api/todo",

@@ -8,6 +8,4 @@ public class TodoSqls {
 	static final String UPDATE_TODO  = "UPDATE todo SET completed = 1 WHERE id = :id";
 	
 	static final String SELECT_BY_ID = "SELECT id, todo, completed FROM todo where id = :id";
-	
-	static final String DELETE_COMPLETED = "DELETE FROM todo WHERE completed = :completed";
 }

@@ -62,8 +62,7 @@ public class TodoDao {
 	}
 	
 	public int deleteCompleted(){
-		Map<String, Object> params = new HashMap<>();
-		params.put("completed", 1);
+		Map<String, ?> params = Collections.singletonMap("completed", 1);
 		return jdbc.update(TodoSqls.DELETE_COMPLETED, params);
 	}
 

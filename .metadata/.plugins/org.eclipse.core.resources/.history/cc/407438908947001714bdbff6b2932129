@@ -9,5 +9,5 @@ public class TodoSqls {
 	
 	static final String SELECT_BY_ID = "SELECT id, todo, completed FROM todo where id = :id";
 	
-	static final String DELETE_COMPLETED = "DELETE FROM todo WHERE completed = :completed";
+	static final String DELETE_COMPLETED = "DELETE FROM todo WHERE completed= 1";
 }

@@ -27,9 +27,9 @@ function countNum(){
 }
 
 //delete completed todos
-$('.clear-completed').click(function(){
-	//console.log('clear');
-	$.ajax({
+$('.clear-completed').on('click', function(){
+	console.log('clear');
+	/*$.ajax({
 		type: "DELETE",
 		url: "/api/todo",
 		success: function(data){
@@ -44,7 +44,7 @@ $('.clear-completed').click(function(){
 				getTodoList('completed');
 			}
 		}
-	});
+	});*/
 });
 
 //delete todo

@@ -37,6 +37,6 @@ public class TodoService {
 	}
 	
 	public int delete(){
-        return dao.deleteCompleted();
+        return dao.delete_completed();
     }
 }

@@ -60,11 +60,5 @@ public class TodoDao {
 		SqlParameterSource params = new BeanPropertySqlParameterSource(todo);
 		return jdbc.update(TodoSqls.DELETE_BY_ID, params);
 	}
-	
-	public int deleteCompleted(){
-		Map<String, Object> params = new HashMap<>();
-		params.put("completed", 1);
-		return jdbc.update(TodoSqls.DELETE_COMPLETED, params);
-	}
 
 }
