@@ -5,3 +5,5 @@ CREATE TABLE todo (
 );
 
 --drop table todo;
+
+update todo set completed = 1 where id = 1;

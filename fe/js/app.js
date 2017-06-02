@@ -8,18 +8,57 @@
 	getTodoList('all');
 })(window);
 
+//refresh todo-count num
+function countNum(){
+	$.ajax({
+		type : "GET",
+		url : "/api/todo",
+		success : function(data){
+			var num = 0;
+			$.each(data, function(){
+				var now = $(this).get(0);
+				if(now.completed == 0){
+					num++;
+				}
+			})
+			$('.todo-count>strong').text(num);
+		}
+	});
+}
+
+$('.todo-list').on('click', "input[type='checkbox']", function() {
+	var tmp = $(this).parent();
+	var checkbox = tmp.children('input');
+	var gparent = tmp.parent();
+
+	var id = tmp.get(0).id;
+	$.ajax({
+		type: "PUT",
+		  url: "/api/todo/" + id,
+		  contentType: "application/json; charset=utf-8",
+		  success: function(data){
+			  console.log("put : " + data);      
+			  if(checkbox.is(':checked')){
+				  	checkbox.attr('checked', true);
+				  	gparent.addClass('completed');
+					//개수 갱신
+					countNum();
+				}
+
+		  }
+	});
+});
+
 //all / active / completed 버튼 눌렸을 때의 이벤트 메소드 작성해서 그 안에서 getTodoList(filter) 호출
-$('#all').on('click', function() {
+$('#all').click(function(){
 	getTodoList('all');
 });
 
-
-$('#active').on('click', function() {
+$('#active').click(function(){
 	getTodoList('active');
 });
 
-
-$('#completed').on('click', function() {
+$('#completed').click(function(){
 	getTodoList('completed');
 });
 
@@ -31,16 +70,7 @@ function isCompleted(tdata){
 	return tdata.completed == 1;
 }
 
-function countNum(data){
-	var num = 0;
-	$.each(data, function(){
-		var now = $(this).get(0);
-		if(now.completed == 0){
-			num++;
-		}
-	})
-	$('.todo-count>strong').text(num);
-}
+
 
 function getTodoList(filter){
 	$.ajax({
@@ -50,7 +80,7 @@ function getTodoList(filter){
 			//data에 전체 todo 리스트가 보내짐
 			$('.todo-list').empty();
 	
-			countNum(data);
+			countNum();
 			
 			var newData;
 			

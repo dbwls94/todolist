@@ -25,4 +25,9 @@ public class TodoService {
 	public Collection<Todo> findAll() {
 		return dao.selectAll();
 	}
+	
+	public boolean update(Integer id) {
+		int affected = dao.update(id);
+		return affected == 1;
+	}
 }
