@@ -36,6 +36,10 @@ $('.todo-list').on('click', 'button', function(){
 		url: "api/todo/" + id,
 		contentType: "application/json; charset=utf-8",
 		success: function(data){
+			//item 개수 --
+			var num = Number($('.todo-count>strong').text())-1;
+			$('.todo-count>strong').text(num);
+			
 			//현재 filter 따라서 페이지 로딩
 			if($('#all').hasClass('selected')){
 				getTodoList('all');
@@ -46,10 +50,6 @@ $('.todo-list').on('click', 'button', function(){
 			else if($('#completed').hasClass('selected')){
 				getTodoList('completed');
 			}
-			
-			//item 개수 --
-			var num = Number($('.todo-count>strong').text())-1;
-			$('.todo-count>strong').text(num);
 		}
 	});
 });

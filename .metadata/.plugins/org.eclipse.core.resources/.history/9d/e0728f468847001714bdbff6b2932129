@@ -33,6 +33,6 @@ public class TodoService {
 	
 	public int delete(Integer id) {
 		int affected = dao.deleteById(id);
-		return affected == 1 ? 1 : 0;
+		return affected == 1;
 	}
 }

@@ -37,19 +37,13 @@ $('.todo-list').on('click', 'button', function(){
 		contentType: "application/json; charset=utf-8",
 		success: function(data){
 			//현재 filter 따라서 페이지 로딩
-			if($('#all').hasClass('selected')){
-				getTodoList('all');
-			}
-			else if($('#active').hasClass('selected')){
-				getTodoList('active');
-			}
-			else if($('#completed').hasClass('selected')){
-				getTodoList('completed');
-			}
+			
 			
 			//item 개수 --
 			var num = Number($('.todo-count>strong').text())-1;
 			$('.todo-count>strong').text(num);
+			
+			
 		}
 	});
 });
@@ -115,21 +109,27 @@ function getTodoList(filter){
 			//현재 선택된 filter 얻어와서 구별하고 todo list 뿌려줌
 			if(filter == 'all') {
 				newData = data;
-				$('#all').addClass('selected');
-				$('#active').removeClass('selected');
-				$('#completed').removeClass('selected');
+				/*$('#all').addClass('selected');
+				$('#active').addClass(' ');
+				$('#completed').addClass(' ');*/
+				$('#all').attr('class', 'selected');
+				$('#active').attr('class', '');
+				$('#completed').attr('class', '');
 			}
 			else if(filter == 'active') {
 				newData = data.filter(isActive);
-				$('#all').removeClass('selected');
+				/*$('#all').addClass(' ');
 				$('#active').addClass('selected');
-				$('#completed').removeClass('selected');
+				$('#completed').addClass(' ');*/
+				$('#all').attr('class', '');
+				$('#active').attr('class', 'selected');
+				$('#completed').attr('class', '');
 
 			}
 			else if(filter == 'completed') {
 				newData = data.filter(isCompleted);
-				$('#all').removeClass('selected');
-				$('#active').removeClass('selected');
+				$('#all').addClass(' ');
+				$('#active').addClass(' ');
 				$('#completed').addClass('selected');
 			}
 			

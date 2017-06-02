@@ -40,16 +40,18 @@ $('.todo-list').on('click', 'button', function(){
 			if($('#all').hasClass('selected')){
 				getTodoList('all');
 			}
-			else if($('#active').hasClass('selected')){
-				getTodoList('active');
+			else if($('#all').hasClass('selected')){
+				
 			}
-			else if($('#completed').hasClass('selected')){
-				getTodoList('completed');
+			else if($('#all').hasClass('selected')){
+				
 			}
 			
 			//item 개수 --
 			var num = Number($('.todo-count>strong').text())-1;
 			$('.todo-count>strong').text(num);
+			
+			
 		}
 	});
 });

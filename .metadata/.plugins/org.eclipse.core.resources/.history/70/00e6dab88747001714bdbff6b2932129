@@ -50,6 +50,8 @@ $('.todo-list').on('click', 'button', function(){
 			//item 개수 --
 			var num = Number($('.todo-count>strong').text())-1;
 			$('.todo-count>strong').text(num);
+			
+			
 		}
 	});
 });

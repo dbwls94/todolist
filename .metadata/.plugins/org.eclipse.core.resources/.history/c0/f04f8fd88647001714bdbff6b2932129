@@ -37,19 +37,13 @@ $('.todo-list').on('click', 'button', function(){
 		contentType: "application/json; charset=utf-8",
 		success: function(data){
 			//현재 filter 따라서 페이지 로딩
-			if($('#all').hasClass('selected')){
-				getTodoList('all');
-			}
-			else if($('#active').hasClass('selected')){
-				getTodoList('active');
-			}
-			else if($('#completed').hasClass('selected')){
-				getTodoList('completed');
-			}
+			
 			
 			//item 개수 --
 			var num = Number($('.todo-count>strong').text())-1;
 			$('.todo-count>strong').text(num);
+			
+			
 		}
 	});
 });
@@ -116,21 +110,16 @@ function getTodoList(filter){
 			if(filter == 'all') {
 				newData = data;
 				$('#all').addClass('selected');
-				$('#active').removeClass('selected');
-				$('#completed').removeClass('selected');
+				$('#active').addClass('');
+				$('#completed').addClass('');
 			}
 			else if(filter == 'active') {
 				newData = data.filter(isActive);
-				$('#all').removeClass('selected');
-				$('#active').addClass('selected');
-				$('#completed').removeClass('selected');
-
+				$('#all').addClass('selected');
 			}
 			else if(filter == 'completed') {
 				newData = data.filter(isCompleted);
-				$('#all').removeClass('selected');
-				$('#active').removeClass('selected');
-				$('#completed').addClass('selected');
+				$('#all').addClass('selected');
 			}
 			
 			//newData 배열 뿌려주기(현재 객체의 completed가 0인지 1인지 각각 체크하며 뿌려줘야함_all 때문에 섞여서)
