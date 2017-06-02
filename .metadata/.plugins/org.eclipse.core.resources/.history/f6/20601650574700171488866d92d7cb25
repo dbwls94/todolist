@@ -1,0 +1,79 @@
+(function (window) {
+	'use strict';
+
+	// Your starting point. Enjoy the ride!
+	
+	//기본 적용된 필터 -> all
+	//전체 리스트 호출 -> 새로고침해도 같도록
+	getTodoList('all');
+})(window);
+
+function isActive(completed){
+	return completed == 0;
+}
+
+function getTodoList(filter){
+	$.ajax({
+		type : "GET",
+		url : "/api/todo",
+		success : function(data){
+			//data에 전체 todo 리스트가 보내짐
+			//$('.todo-list').empty();
+			$('.todo-count>strong').text(data.length);
+			
+			//console.log(todoArray.length);
+			
+			var newData;
+			
+			//현재 선택된 filter 얻어와서 구별하고 todo list 뿌려줌
+			if(filter == 'all')
+				newData = data;
+			else if(filter == 'active') {
+				newData = data.filter();
+			}
+			else(filter == 'completed') {
+				
+			}
+		}
+	});
+}
+
+var todoArray = new Array();
+
+//insert todo
+$('.new-todo').keyup(function (e){
+	if(e.keyCode == 13){ 
+		var todoData = new Object();
+		todoData.todo = $(this).val();
+		
+		if(todoData.todo == ''){
+			alert('add your todo!');
+			return;
+		}
+		
+		$(this).val('');
+		
+		
+		$.ajax({
+			  type: "POST",
+			  url: "/api/todo",
+			  data: todoData.todo,
+			  success: function(data){
+				  console.log(data);
+				  
+				  todoData.id = data.id;
+				  todoData.completed = data.completed;
+				  todoArray.unshift(todoData);
+				  
+				  //add to '.todo-list'
+				  if($('#all').hasClass('selected') || $('#active').hasClass('selected')){
+					  $('.todo-list').prepend('<li><div class="view" id="' + data.id + '"><input class="toggle" type="checkbox"><label>' + data.todo + '</label><button class="destroy"></button></div></li>');
+				  }
+				  
+				  //'' item left++
+				  $('.todo-count>strong').text(todoArray.length);
+			  }
+		});
+	}
+	
+})

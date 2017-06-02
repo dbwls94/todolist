@@ -1,11 +1,9 @@
 package kr.or.connect.todo.domain;
-import java.sql.Timestamp;
 
 public class Todo {
 	private Integer id;
 	private String todo;
 	private Integer completed;
-	//private Timestamp date;
 	
 	public Todo(){
 		

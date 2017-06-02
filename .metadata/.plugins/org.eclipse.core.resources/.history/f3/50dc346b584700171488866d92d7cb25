@@ -1,0 +1,9 @@
+CREATE TABLE todo (
+	id INT IDENTITY NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	todo TEXT,
+	completed INT(1) NOT NULL DEFAULT 0
+);
+
+--drop table todo;
+
+UPDATE todo SET completed = 1 WHERE id = 1;

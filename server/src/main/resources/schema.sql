@@ -3,3 +3,5 @@ CREATE TABLE todo (
 	todo TEXT,
 	completed INT(1) NOT NULL DEFAULT 0
 );
+
+--drop table todo;

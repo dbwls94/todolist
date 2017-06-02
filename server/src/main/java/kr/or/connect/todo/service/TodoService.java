@@ -1,5 +1,7 @@
 package kr.or.connect.todo.service;
 
+import java.util.Collection;
+
 import kr.or.connect.todo.domain.Todo;
 import kr.or.connect.todo.persistence.TodoDao;
 
@@ -14,11 +16,13 @@ public class TodoService {
 	}
 	
 	public Todo create(String todo) {
-		//Timestamp ts = new Timestamp(System.currentTimeMillis());
-		//System.out.println(todo);
 		Todo newTodo = new Todo(todo, 0);
 		Integer id = dao.insert(newTodo);
 		newTodo.setId(id);
 		return newTodo;
+	}
+	
+	public Collection<Todo> findAll() {
+		return dao.selectAll();
 	}
 }
