@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
 @RestController
-@RequestMapping("/api/todos") //common
+@RequestMapping("/api/todo") //common
 public class TodoController {
 	private final TodoService service; //TodoService를 주입받음
 	private final Logger log = LoggerFactory.getLogger(TodoController.class);

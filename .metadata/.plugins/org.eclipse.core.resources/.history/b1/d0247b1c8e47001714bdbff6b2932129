@@ -12,7 +12,7 @@
 function countNum(){
 	$.ajax({
 		type : "GET",
-		url : "/api/todos",
+		url : "/api/todo",
 		success : function(data){
 			var num = 0;
 			$.each(data, function(){
@@ -31,7 +31,7 @@ $('.clear-completed').click(function(){
 	//console.log('clear');
 	$.ajax({
 		type: "DELETE",
-		url: "/api/todos",
+		url: "/api/todo",
 		success: function(data){
 			//현재 filter 따라서 페이지 로딩
 			if($('#all').hasClass('selected')){
@@ -54,7 +54,7 @@ $('.todo-list').on('click', 'button', function(){
 	
 	$.ajax({
 		type: "DELETE",
-		url: "/api/todos/" + id,
+		url: "/api/todo/" + id,
 		contentType: "application/json; charset=utf-8",
 		success: function(data){
 			//현재 filter 따라서 페이지 로딩
@@ -84,7 +84,7 @@ $('.todo-list').on('click', "input[type='checkbox']", function() {
 	var id = tmp.get(0).id;
 	$.ajax({
 		type: "PUT",
-		  url: "/api/todos/" + id,
+		  url: "/api/todo/" + id,
 		  contentType: "application/json; charset=utf-8",
 		  success: function(data){    
 			  if(checkbox.is(':checked')){
@@ -124,7 +124,7 @@ function isCompleted(tdata){
 function getTodoList(filter){
 	$.ajax({
 		type : "GET",
-		url : "/api/todos",
+		url : "/api/todo",
 		success : function(data){
 			//data에 전체 todo 리스트가 보내짐
 			$('.todo-list').empty();
@@ -185,7 +185,7 @@ $('.new-todo').keyup(function (e){
 		
 		$.ajax({
 			  type: "POST",
-			  url: "/api/todos",
+			  url: "/api/todo",
 			  contentType: "application/json; charset=utf-8",
 			  data: todoData.todo,
 			  success: function(data){
