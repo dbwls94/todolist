@@ -97,13 +97,14 @@ $('.new-todo').keyup(function (e){
 		$.ajax({
 			  type: "POST",
 			  url: "/api/todo",
+			  contentType: "application/json; charset=utf-8",
 			  data: todoData.todo,
 			  success: function(data){
 				  console.log(data);
 				  
 				  todoData.id = data.id;
 				  todoData.completed = data.completed;
-				  todoArray.unshift(todoData);
+				  todoArray.unshift(todoData);				 
 				  
 				  //add to '.todo-list'
 				  if($('#all').hasClass('selected') || $('#active').hasClass('selected')){
@@ -114,6 +115,7 @@ $('.new-todo').keyup(function (e){
 				  var num = Number($('.todo-count>strong').text())+1;
 				  $('.todo-count>strong').text(num);
 			  }
+			  
 		});
 	}
 	
