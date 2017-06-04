@@ -34,4 +34,8 @@
 <fullyQualifiedTypeName name="org.junit.Before"/>
 <fullyQualifiedTypeName name="org.junit.Test"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
 </qualifiedTypeNameHistroy>

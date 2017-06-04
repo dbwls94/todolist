@@ -1,23 +1,27 @@
 package kr.or.connect.todo.domain;
+import java.sql.Timestamp;
 
 public class Todo {
 	private Integer id;
 	private String todo;
 	private Integer completed;
+	private Timestamp date;
 	
 	public Todo(){
 		
 	}
 	
-	public Todo(String todo, Integer completed){
+	public Todo(String todo, Integer completed, Timestamp date){
 		this.todo = todo;
 		this.completed = completed;
+		this.date = date;
 	}
 	
-	public Todo(Integer id, String todo, Integer completed){
+	public Todo(Integer id, String todo, Integer completed, Timestamp date){
 		this.id = id;
 		this.todo = todo;
 		this.completed = completed;
+		this.date = date;
 	}
 	
 	public Integer getId() {
@@ -43,6 +47,15 @@ public class Todo {
 		this.completed = completed;
 	}
 	
+	
+	public Timestamp getDate() {
+		return date;
+	}
+
+	public void setDate(Timestamp date) {
+		this.date = date;
+	}
+
 	@Override
 	public String toString() {
 		return "Todo [id=" + id + ", todo=" + todo + ", completed=" + completed	+ "]";
